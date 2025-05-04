@@ -3,69 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
     <title>Stream Dashboard</title>
 </head>
 
-<body>
-    <div class="row">
-        <div class="column">
-            <div class="tile">
-                <h3>Service Status</h3>
-                <div class="service-status">
-                    <div class="lights">
-                        <div class="light">
-                            <div class="circle">
-                                <span class="cairo">0</span>
-                            </div>
-                            <span>UP</span>
-                        </div>
-                        <div class="light">
-                            <div class="circle">
-                                <span class="cairo">0</span>
-                            </div>
-                            <span>AFFECTED</span>
-                        </div>
-                        <div class="light">
-                            <div class="circle">
-                                <span class="cairo">0</span>
-                            </div>
-                            <span>DOWN</span>
-                        </div>
-                    </div>
-                    <span>Notifications</span>
-                    <div class="notify">
-                        <div class="events">
-                            <span>No Current Events</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="tile">
-                <iframe id="ytplayer" type="text/html"
-                    src="https://www.youtube.com/embed/?listType=playlist&list=PLAEQD0ULngi6ji60yHxippnAAWQZIXnu-&mute=1&autoplay=1&cc_load_policy=1&controls=0&loop=1&modestbranding=1&color=white"
-                    frameborder="0"></iframe>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="column">
-            <div class="tile">
-                <h3>Embed</h3>
-                <iframe src="" frameborder="0"></iframe>
-            </div>
-        </div>
-        <div class="column">
-            <div class="tile">
-                <iframe src="https://player.twitch.tv/?channel=amiibots&parent=dash.medievalapple.net" frameborder="0"
-                    allowfullscreen="false" scrolling="no"></iframe>
-            </div>
-        </div>
-    </div>
-    <script src="/assets/js/StatusApiRequest.js"></script>
+<body style="margin: 0px; background: black;">
+    <iframe id="ytplayer" type="text/html" width="100%" height="50%"
+        src="https://www.youtube.com/embed/?listType=playlist&list=PLAEQD0ULngi6ji60yHxippnAAWQZIXnu-&mute=1&autoplay=1&cc_load_policy=1&controls=0&loop=1&modestbranding=1&color=white"
+        frameborder="0"></iframe>
+    <br>
+    <iframe src="https://player.twitch.tv/?channel=amiibots&parent=dash.medievalapple.net" frameborder="0"
+        allowfullscreen="false" scrolling="no" height="50%" width="100%"></iframe>
 </body>
 
 </html>
