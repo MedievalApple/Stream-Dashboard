@@ -8,6 +8,7 @@ async function MakeStatusApiRequest(apiData)
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
         headers: {
             //"Content-Type": "application/json",
+            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
         }
     });
 
