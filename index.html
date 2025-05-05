@@ -12,24 +12,24 @@
     <div class="row">
         <div class="column">
             <div class="tile">
-                <h3>Service Status</h3>
+                <h3>MSU Service Status</h3>
                 <div class="service-status">
                     <div class="lights">
                         <div class="light">
-                            <div class="circle">
-                                <span class="cairo">0</span>
+                            <div id="upLight" class="circle">
+                                <span id="upNum" class="cairo">0</span>
                             </div>
                             <span>UP</span>
                         </div>
                         <div class="light">
-                            <div class="circle">
-                                <span class="cairo">0</span>
+                            <div id="affLight" class="circle">
+                                <span id="affNum" class="cairo">0</span>
                             </div>
                             <span>AFFECTED</span>
                         </div>
                         <div class="light">
-                            <div class="circle">
-                                <span class="cairo">0</span>
+                            <div id="downLight" class="circle">
+                                <span id="downNum" class="cairo">0</span>
                             </div>
                             <span>DOWN</span>
                         </div>
@@ -66,6 +66,7 @@
         </div>
     </div>
     <script src="/assets/js/StatusApiRequest.js"></script>
+    <script src="/assets/js/ServiceStatus.js"></script>
 </body>
 
 </html>

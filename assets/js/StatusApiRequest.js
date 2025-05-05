@@ -1,18 +1,15 @@
-const host = "https://servicestatus.msu.edu/api";
+const host = "https://msu-status.medievalapple.workers.dev/";
 
 async function MakeStatusApiRequest(apiData)
 {
     const response = await fetch(host + apiData, {
         method: "GET", // *GET, POST, PUT, DELETE, etc.
-        mode: "no-cors", // no-cors, *cors, same-origin
+        mode: "cors", // no-cors, *cors, same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
         headers: {
             //"Content-Type": "application/json",
-            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
         }
     });
 
     return response.json();
 }
-
-console.log(MakeStatusApiRequest("/blocks/traffic_lights/v1"))
