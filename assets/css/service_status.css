@@ -1,0 +1,61 @@
+.service-status {
+    height: 100%; 
+    width: 80%; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lights {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center;
+    
+    width: 100%;
+    height: 100%;
+}
+
+.light {
+    background-color:  rgb(43, 43, 43);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 10px 10px;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    aspect-ratio: 1;
+    width: 60%;
+    border-radius: 100%;
+    background-color:  rgb(88, 88, 88);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xxx-large;
+}
+
+.notify {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px 10px 10px 10px;
+    background-color:  rgb(43, 43, 43);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.events {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}

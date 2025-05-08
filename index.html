@@ -4,69 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/edit_window.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/service_status.css">
     <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
     <title>Stream Dashboard</title>
 </head>
 
 <body>
-    <div class="row">
-        <div class="column">
-            <div class="tile">
-                <h3>MSU Service Status</h3>
-                <div class="service-status">
-                    <div class="lights">
-                        <div class="light">
-                            <div id="upLight" class="circle">
-                                <span id="upNum" class="cairo">0</span>
+    <div class="dash">
+        <div class="row">
+            <div class="column">
+                <div class="tile">
+                    <h3>MSU Service Status</h3>
+                    <div class="service-status">
+                        <div class="lights">
+                            <div class="light">
+                                <div id="upLight" class="circle">
+                                    <span id="upNum" class="cairo">0</span>
+                                </div>
+                                <span>UP</span>
                             </div>
-                            <span>UP</span>
-                        </div>
-                        <div class="light">
-                            <div id="affLight" class="circle">
-                                <span id="affNum" class="cairo">0</span>
+                            <div class="light">
+                                <div id="affLight" class="circle">
+                                    <span id="affNum" class="cairo">0</span>
+                                </div>
+                                <span>AFFECTED</span>
                             </div>
-                            <span>AFFECTED</span>
-                        </div>
-                        <div class="light">
-                            <div id="downLight" class="circle">
-                                <span id="downNum" class="cairo">0</span>
+                            <div class="light">
+                                <div id="downLight" class="circle">
+                                    <span id="downNum" class="cairo">0</span>
+                                </div>
+                                <span>DOWN</span>
                             </div>
-                            <span>DOWN</span>
                         </div>
-                    </div>
-                    <span>Notifications</span>
-                    <div class="notify">
-                        <div class="events">
-                            <span>No Current Events</span>
+                        <span>Notifications</span>
+                        <div class="notify">
+                            <div class="events">
+                                <span>No Current Events</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="column">
+                <div class="tile">
+                    <iframe id="ytplayer" type="text/html"
+                        src="https://www.youtube.com/embed/?listType=playlist&list=PLAEQD0ULngi6ji60yHxippnAAWQZIXnu-&mute=1&autoplay=1&cc_load_policy=1&controls=0&loop=1&modestbranding=1&color=white"
+                        frameborder="0"></iframe>
+                </div>
+            </div>
         </div>
-        <div class="column">
-            <div class="tile">
-                <iframe id="ytplayer" type="text/html"
-                    src="https://www.youtube.com/embed/?listType=playlist&list=PLAEQD0ULngi6ji60yHxippnAAWQZIXnu-&mute=1&autoplay=1&cc_load_policy=1&controls=0&loop=1&modestbranding=1&color=white"
-                    frameborder="0"></iframe>
+        <div class="row">
+            <div class="column">
+                <div class="tile">
+                    <h3>Embed</h3>
+                    <iframe src="" frameborder="0"></iframe>
+                </div>
+            </div>
+            <div class="column">
+                <div class="tile">
+                    <iframe src="https://player.twitch.tv/?channel=amiibots&parent=dash.medievalapple.net"
+                        frameborder="0" allowfullscreen="false" scrolling="no"></iframe>
+                </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="column">
-            <div class="tile">
-                <h3>Embed</h3>
-                <iframe src="" frameborder="0"></iframe>
+
+    <div style="position: absolute; width: 100%; height: 100%; display: grid; ">
+        <div id="trig0" style="background-color: aqua; width: 100%; height: 100%; grid-column: 1; grid-row: 1/2; opacity: 50%;"></div>
+        <div id="trig1" style="background-color: rgb(136, 255, 0); width: 100%; height: 100%; grid-column: 1; grid-row: 2/2; opacity: 50%;"></div>
+        <div id="trig2" style="background-color: rgb(0, 255, 149); width: 100%; height: 100%; grid-column: 2; grid-row: 1/2; opacity: 50%;"></div>
+        <div id="trig3" style="background-color: rgb(255, 0, 106); width: 100%; height: 100%; grid-column: 2; grid-row: 2/2; opacity: 50%;"></div>
+    </div>
+
+
+    <div class="settings" id="settings" hidden>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 2%;">
+            <span style="font-size: xx-large;">- Edit Window -</span>
+        </div>
+        <br>
+        <div>
+            <div>
+                <label for="media-type">Preset Windows:</label>
+
+                <select name="t" id="media-type" required>
+                    <option value="e">Embed</option>
+                    <option value="b">Bob Ross</option>
+                    <option value="a">Amiibots</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="t">Window Title</label>
+                <input type="text" name="ip" id="ip" placeholder="DVD Logo" required />
+            </div><br>
+            <div>
+                <label for="u">Embed Url: </label>
+                <input type="text" name="u" id="u" placeholder="https://example.com/" required />
+            </div><br>
+            <div hidden>
+                <label for="launched">Channel Already Launched: </label>
+                <input type="checkbox" name="launched" id="launched" />
             </div>
         </div>
-        <div class="column">
-            <div class="tile">
-                <iframe src="https://player.twitch.tv/?channel=amiibots&parent=dash.medievalapple.net" frameborder="0"
-                    allowfullscreen="false" scrolling="no"></iframe>
-            </div>
+        <br>
+        <div>
+            <button onclick="hideInfo()">OK</button>
         </div>
     </div>
+
+    <script>
+        function hideInfo() {
+            document.getElementById("settings").hidden = true;
+        }
+    </script>
+
     <script src="/assets/js/StatusApiRequest.js"></script>
     <script src="/assets/js/ServiceStatus.js"></script>
+    <script src="/assets/js/EditWindow.js"></script>
 </body>
 
 </html>
