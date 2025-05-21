@@ -70,13 +70,12 @@
         </div>
     </div>
 
-    <div style="position: absolute; width: 100%; height: 100%; display: grid; ">
-        <div id="trig0" style="background-color: aqua; width: 100%; height: 100%; grid-column: 1; grid-row: 1/2; opacity: 50%;"></div>
-        <div id="trig1" style="background-color: rgb(136, 255, 0); width: 100%; height: 100%; grid-column: 1; grid-row: 2/2; opacity: 50%;"></div>
+    <div id="edit-overlay" style="position: absolute; width: 100%; height: 100%; display: none;">
+        <div id="trig0" style="background-color: rgb(255, 0, 106); width: 100%; height: 100%; grid-column: 1; grid-row: 1/2; opacity: 50%;"></div>
+        <div id="trig1" style="background-color: rgb(0, 255, 149); width: 100%; height: 100%; grid-column: 1; grid-row: 2/2; opacity: 50%;"></div>
         <div id="trig2" style="background-color: rgb(0, 255, 149); width: 100%; height: 100%; grid-column: 2; grid-row: 1/2; opacity: 50%;"></div>
         <div id="trig3" style="background-color: rgb(255, 0, 106); width: 100%; height: 100%; grid-column: 2; grid-row: 2/2; opacity: 50%;"></div>
     </div>
-
 
     <div class="settings" id="settings" hidden>
         <div style="display: flex; align-items: center; justify-content: center; gap: 2%;">
@@ -89,34 +88,47 @@
 
                 <select name="t" id="media-type" required>
                     <option value="e">Embed</option>
+                    <option value="y">Youtube</option>
+                    <option value="y">Twitch</option>
                     <option value="b">Bob Ross</option>
                     <option value="a">Amiibots</option>
+                    <option value="s">MSU Service Status</option>
                 </select>
             </div><br>
             <div>
                 <label for="t">Window Title</label>
                 <input type="text" name="ip" id="ip" placeholder="DVD Logo" required />
             </div><br>
+            <!-- Embeds -->
             <div>
                 <label for="u">Embed Url: </label>
                 <input type="text" name="u" id="u" placeholder="https://example.com/" required />
             </div><br>
+            <!-- Youtube -->
+            <div>
+                <label for="u">Video ID: </label>
+                <input type="text" name="u" id="u" placeholder="https://example.com/" required />
+            </div><br>
             <div hidden>
-                <label for="launched">Channel Already Launched: </label>
+                <label for="launched">Loop Video: </label>
                 <input type="checkbox" name="launched" id="launched" />
-            </div>
+            </div><br>
+            <!-- Youtube Playlist -->
+            <div>
+                <label for="u">Playlist ID: </label>
+                <input type="text" name="u" id="u" placeholder="https://example.com/" required />
+            </div><br>
+            <!-- Twitch -->
+            <div>
+                <label for="u">Channel name: </label>
+                <input type="text" name="u" id="u" placeholder="https://example.com/" required />
+            </div><br>
         </div>
         <br>
         <div>
-            <button onclick="hideInfo()">OK</button>
+            <button onclick="hideEditWindow()">OK</button>
         </div>
     </div>
-
-    <script>
-        function hideInfo() {
-            document.getElementById("settings").hidden = true;
-        }
-    </script>
 
     <script src="/assets/js/StatusApiRequest.js"></script>
     <script src="/assets/js/ServiceStatus.js"></script>
