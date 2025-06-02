@@ -3,16 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/edit_window.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/service_status.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
     <title>Stream Dashboard</title>
 </head>
 
-<body style="margin: 0px; background: black;">
-    <iframe id="ytplayer" type="text/html" width="100%" height="50%"
-        src="https://www.youtube.com/embed/?listType=playlist&list=PLAEQD0ULngi6ji60yHxippnAAWQZIXnu-&mute=1&autoplay=1&cc_load_policy=1&controls=0&loop=1&modestbranding=1&color=white"
-        frameborder="0"></iframe>
-    <br>
-    <iframe src="https://player.twitch.tv/?channel=amiibots&parent=dash.medievalapple.net" frameborder="0"
-        allowfullscreen="false" scrolling="no" height="50%" width="100%"></iframe>
+<body>
+    <div class="dash">
+        <div class="row">
+            <div class="column">
+                <div id="win0" class="tile">
+                    <h3>MSU Service Status</h3>
+                    <div class="service-status">
+                        <div class="lights">
+                            <a href="https://servicestatus.msu.edu/" class="light">
+                                <div id="upLight" class="circle">
+                                    <span id="upNum" class="cairo">0</span>
+                                </div>
+                                <span>UP</span>
+                            </a>
+                            <a href="https://servicestatus.msu.edu/" class="light">
+                                <div id="affLight" class="circle">
+                                    <span id="affNum" class="cairo">0</span>
+                                </div>
+                                <span>AFFECTED</span>
+                            </a>
+                            <a href="https://servicestatus.msu.edu/" class="light">
+                                <div id="downLight" class="circle">
+                                    <span id="downNum" class="cairo">0</span>
+                                </div>
+                                <span>DOWN</span>
+                            </a>
+                        </div>
+                        <span>Notifications</span>
+                        <div class="notify">
+                            <div id="events" class="events">
+                                <div id="no-events" class="center-event">
+                                    <span>No Current Events</span>
+                                </div>
+                                <!-- <div class="event">
+                                    <div class="event-circle" style="background-color: gold;"></div>
+                                    <div class="event-title"><div class="right-to-left">[Incident - Identified] MATLAB Is Experiencing Performance Issues</div></div>
+                                    <a href="https://servicestatus.msu.edu/incidents/688065">More Details</a>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div id="win1" class="tile">
+                    <iframe id="ytplayer" type="text/html"
+                        src="https://www.youtube.com/embed/?listType=playlist&list=PLAEQD0ULngi6ji60yHxippnAAWQZIXnu-&mute=1&autoplay=1&cc_load_policy=1&controls=0&loop=1&modestbranding=1&color=white"
+                        frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div id="win2" class="tile">
+                    <h2>Welcome to the Dashboard</h2>
+                    <h3>To edit a window press E and then</h3>
+                    <h3>right click the window you would like to edit.</h3>
+                </div>
+            </div>
+            <div class="column">
+                <div id="win3" class="tile">
+                    <iframe src="https://player.twitch.tv/?channel=amiibots&parent=dash.medievalapple.net"
+                        frameborder="0" allowfullscreen="false" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-overlay" style="position: absolute; width: 100%; height: 100%; display: none;">
+        <div id="trig0"
+            style="background-color: rgb(29, 29, 29); width: 100%; height: 100%; grid-column: 1; grid-row: 1/2; opacity: 80%;">
+        </div>
+        <div id="trig1"
+            style="background-color: rgb(43, 43, 43); width: 100%; height: 100%; grid-column: 1; grid-row: 2/2; opacity: 80%;">
+        </div>
+        <div id="trig2"
+            style="background-color: rgb(43, 43, 43); width: 100%; height: 100%; grid-column: 2; grid-row: 1/2; opacity: 80%;">
+        </div>
+        <div id="trig3"
+            style="background-color: rgb(29, 29, 29); width: 100%; height: 100%; grid-column: 2; grid-row: 2/2; opacity: 80%;">
+        </div>
+    </div>
+
+    <div class="settings" id="settings" hidden>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 2%;">
+            <span style="font-size: xx-large;">- Edit Window -</span>
+        </div>
+        <br>
+        <div>
+            <div>
+                <label for="media-type">Preset Windows:</label>
+
+                <select name="t" id="winpreset" required>
+                    <option value="e">Embed</option>
+                    <option value="b">Bob Ross</option>
+                    <option value="a">Amiibots</option>
+                    <option value="s">MSU Service Status</option>
+                    <option value="r">RHA Movies</option>
+                </select>
+            </div><br>
+            <div id="wintitleid">
+                <label for="t">Window Title</label>
+                <input type="text" name="title" id="wintitle" placeholder="My Embed"/>
+            </div><br>
+            <!-- Embeds -->
+            <div id="embedurl">
+                <label for="u">Embed Url: </label>
+                <input type="text" name="url" id="embedurltext" placeholder="https://example.com/"/>
+            </div><br>
+            <!-- Youtube -->
+            <!-- <div>
+                <label for="u">Video ID: </label>
+                <input type="text" name="u" id="u" placeholder="https://example.com/" required />
+            </div><br> -->
+            <!-- <div hidden>
+                <label for="launched">Loop Video: </label>
+                <input type="checkbox" name="launched" id="launched" />
+            </div><br> -->
+            <!-- Youtube Playlist -->
+            <!-- <div>
+                <label for="u">Playlist ID: </label>
+                <input type="text" name="u" id="u" placeholder="https://example.com/" required />
+            </div><br> -->
+            <!-- Twitch -->
+            <!-- <div>
+                <label for="u">Channel name: </label>
+                <input type="text" name="u" id="u" placeholder="https://example.com/" required />
+            </div><br> -->
+        </div>
+        <br>
+        <div>
+            <button onclick="hideEditWindow()">Cancel</button>
+            <button id="winsave">Save</button>
+        </div>
+    </div>
+
+    <script src="/assets/js/StatusApiRequest.js"></script>
+    <script src="/assets/js/ServiceStatus.js"></script>
+    <script src="/assets/js/EditWindow.js"></script>
 </body>
 
 </html>
