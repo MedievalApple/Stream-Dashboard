@@ -99,6 +99,11 @@ function saveWindow(num) {
     }
 
     SaveWindows()
+
+    const oldsave = document.getElementById("winsave")
+    const newsave = oldsave.cloneNode(true)
+    oldsave.parentNode.replaceChild(newsave, oldsave);
+
     hideEditWindow()
 }
 
