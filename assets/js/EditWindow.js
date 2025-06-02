@@ -96,6 +96,8 @@ function saveWindow(num) {
         windows[num].innerHTML += "<h3>MSU Service Status</h3><div class=\"service-status\"><div class=\"lights\"><a href=\"https://servicestatus.msu.edu/\" class=\"light\"><div id=\"upLight\" class=\"circle\"><span id=\"upNum\" class=\"cairo\">0</span></div><span>UP</span></a><a href=\"https://servicestatus.msu.edu/\" class=\"light\"><div id=\"affLight\" class=\"circle\"><span id=\"affNum\" class=\"cairo\">0</span></div><span>AFFECTED</span></a><a href=\"https://servicestatus.msu.edu/\" class=\"light\"><div id=\"downLight\" class=\"circle\"><span id=\"downNum\" class=\"cairo\">0</span></div><span>DOWN</span></a></div><span>Notifications</span><div class=\"notify\"><div id=\"events\" class=\"events\"><div id=\"no-events\" class=\"center-event\"><span>No Current Events</span></div></div></div></div></div>"
     } else if (preset == "r") {
         windows[num].innerHTML += "<iframe src=\"https://streaming.swankmp.net/msuspartans\" frameborder=\"0\"></iframe>"
+    } else if (preset == "l") {
+        windows[num].innerHTML += "<iframe src=\"https://g1.ipcamlive.com/player/player.php?alias=61fac12eabc0a&skin=white&autoplay=1&mute=1\" frameborder=\"0\"></iframe>"
     }
 
     SaveWindows()
