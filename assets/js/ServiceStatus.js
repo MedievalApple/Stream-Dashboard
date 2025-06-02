@@ -70,12 +70,12 @@ async function updateNotifications() {
     incidents.forEach(incident => {
         console.log(incident.id)
         console.log(incident.title)
-        eventsHolder.innerHTML += `<div class=\"event\"><div class=\"event-circle\"></div><div class=\"event-title\"><div class=\"right-to-left\">${incident.title}</div></div><a href=\"https://servicestatus.msu.edu/incidents/${incident.id}\">More Details</a></div>`
+        eventsHolder.innerHTML += `<div class=\"event\"><div class=\"event-circle\"></div><div class=\"event-title\"><div class=\"right-to-left\">${incident.title}</div></div><a href=\"https://servicestatus.msu.edu/incidents/${incident.id}\" onclick=\"window.open('https://servicestatus.msu.edu/incidents/${incident.id}', 'statusWindow', 'popup'); return false;\">More Details</a></div>`
     });
 
     maintenances.forEach(maintenance => {
         console.log(maintenance.id)
         console.log(maintenance.title)
-        eventsHolder.innerHTML += `<div class=\"event\"><div class=\"event-circle\"></div><div class=\"event-title\"><div class=\"right-to-left\">${maintenance.title}</div></div><a href=\"https://servicestatus.msu.edu/maintenances/${maintenance.id}\">More Details</a></div>`
+        eventsHolder.innerHTML += `<div class=\"event\"><div class=\"event-circle\"></div><div class=\"event-title\"><div class=\"right-to-left\">${maintenance.title}</div></div><a href=\"https://servicestatus.msu.edu/maintenances/${maintenance.id}\" onclick=\"window.open('https://servicestatus.msu.edu/maintenances/${maintenance.id}', 'statusWindow', 'popup'); return false;\">More Details</a></div>`
     });
 }
