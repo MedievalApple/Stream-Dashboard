@@ -94,6 +94,8 @@
     text-wrap: nowrap;
     width: 60%;
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
 }
 
 .event-circle {
@@ -109,8 +111,9 @@
 }
 
 .right-to-left {
-    animation: RightToLeft 20s infinite linear;
     width: max-content;
+    animation: RightToLeft 20s infinite linear;
+    padding-right: 10%;
 }
 
 @keyframes RightToLeft {
