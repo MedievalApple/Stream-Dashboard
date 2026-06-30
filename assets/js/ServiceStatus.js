@@ -70,12 +70,12 @@ async function updateNotifications() {
     incidents.forEach(incident => {
         console.log(incident.id)
         console.log(incident.title)
-        eventsHolder.innerHTML += `<div class=\"event\"><div class=\"event-circle\"></div><div class=\"event-title\"><div class=\"right-to-left\"><span>${incident.title}</span></div><div class=\"right-to-left\"><span>${incident.title}</span></div></div><a href=\"https://servicestatus.msu.edu/incidents/${incident.id}\" onclick=\"window.open('https://servicestatus.msu.edu/incidents/${incident.id}', 'statusWindow', 'popup'); return false;\">More Details</a></div>`
+        eventsHolder.innerHTML += `<div class=\"event\"><div class=\"event-circle\" style=\"background-color: darkred;\"></div><div class=\"event-title\"><div class=\"right-to-left\"><span>${incident.title}</span></div><div class=\"right-to-left\"><span>${incident.title}</span></div></div><a href=\"https://servicestatus.msu.edu/incidents/${incident.id}\" onclick=\"window.open('https://servicestatus.msu.edu/incidents/${incident.id}', 'statusWindow', 'popup'); return false;\">More Details</a></div>`
     });
 
     maintenances.forEach(maintenance => {
         console.log(maintenance.id)
         console.log(maintenance.title)
-        eventsHolder.innerHTML += `<div class=\"event\"><div class=\"event-circle\"></div><div class=\"event-title\"><div class=\"right-to-left\"><span>${maintenance.title}</span></div><div class=\"right-to-left\"><span>${maintenance.title}</span></div></div><a href=\"https://servicestatus.msu.edu/maintenances/${maintenance.id}\" onclick=\"window.open('https://servicestatus.msu.edu/maintenances/${maintenance.id}', 'statusWindow', 'popup'); return false;\">More Details</a></div>`
+        eventsHolder.innerHTML += `<div class=\"event\"><div class=\"event-circle\" style=\"background-color: #1f6cd1;\"></div><div class=\"event-title\"><div class=\"right-to-left\"><span>${maintenance.title}</span></div><div class=\"right-to-left\"><span>${maintenance.title}</span></div></div><a href=\"https://servicestatus.msu.edu/maintenances/${maintenance.id}\" onclick=\"window.open('https://servicestatus.msu.edu/maintenances/${maintenance.id}', 'statusWindow', 'popup'); return false;\">More Details</a></div>`
     });
 }
