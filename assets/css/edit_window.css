@@ -10,6 +10,10 @@
     position: absolute;
 }
 
+.settings-forum div {
+    margin-bottom: 4%;
+}
+
 button {
     background-color: #1a1a1a;
     border: 2px solid rgba(255, 255, 255, .2);

@@ -98,12 +98,15 @@
             <span style="font-size: xx-large;">- Edit Window -</span>
         </div>
         <br>
-        <div>
+        <div class="settings-forum">
             <div>
                 <label for="media-type">Preset Windows:</label>
 
                 <select name="t" id="winpreset" required>
                     <option value="e">Embed</option>
+                    <option value="y">Youtube</option>
+                    <option value="p">Youtube Playlist</option>
+                    <option value="t">Twitch</option>
                     <option value="b">Bob Ross</option>
                     <option value="a">Amiibots</option>
                     <option value="s">MSU Service Status</option>
@@ -111,34 +114,42 @@
                     <option value="l">Live Campus</option>
                 </select>
             </div><br>
-            <div id="wintitleid">
-                <label for="t">Window Title</label>
-                <input type="text" name="title" id="wintitle" placeholder="My Embed"/>
-            </div><br>
+            <div id="wintitle">
+                <label for="wintitle">Window Title</label>
+                <input type="text" name="wintitle" id="wintitletext" placeholder="My Embed"/>
+            </div>
+            <div id="autoreload">
+                <label for="autoreload">Auto-Reload Window</label>
+                <input type="checkbox" name="autoreload" id="autoreloadcheck" />
+            </div>
             <!-- Embeds -->
             <div id="embedurl">
-                <label for="u">Embed Url: </label>
-                <input type="text" name="url" id="embedurltext" placeholder="https://example.com/"/>
-            </div><br>
+                <label for="embedurl">Embed Url: </label>
+                <input type="text" name="embedurl" id="embedurltext" placeholder="https://example.com/"/>
+            </div>
             <!-- Youtube -->
-            <!-- <div>
-                <label for="u">Video ID: </label>
-                <input type="text" name="u" id="u" placeholder="https://example.com/" required />
-            </div><br> -->
-            <!-- <div hidden>
-                <label for="launched">Loop Video: </label>
-                <input type="checkbox" name="launched" id="launched" />
-            </div><br> -->
+            <div id="videoid">
+                <label for="videoid">Video ID: </label>
+                <input type="text" name="videoid" id="videoidtext" placeholder="dQw4w9WgXcQ" required />
+            </div>
+            <div id="loopvideo">
+                <label for="loopvideo">Loop Video: </label>
+                <input type="checkbox" name="loopvideo" id="loopvideocheck" />
+            </div>
+            <div id="videocaptions">
+                <label for="videocaptions">Enable Captions: </label>
+                <input type="checkbox" name="videocaptions" id="videocaptionscheck" />
+            </div>
             <!-- Youtube Playlist -->
-            <!-- <div>
-                <label for="u">Playlist ID: </label>
-                <input type="text" name="u" id="u" placeholder="https://example.com/" required />
-            </div><br> -->
+            <div id="playlistid">
+                <label for="playlistid">Playlist ID: </label>
+                <input type="text" name="playlistid" id="playlistidtext" placeholder="PLAEQD0ULngi6ji60yHxippnAAWQZIXnu" required />
+            </div>
             <!-- Twitch -->
-            <!-- <div>
-                <label for="u">Channel name: </label>
-                <input type="text" name="u" id="u" placeholder="https://example.com/" required />
-            </div><br> -->
+            <div id="twitchchannel">
+                <label for="twitchchannel">Channel name: </label>
+                <input type="text" name="twitchchannel" id="twitchchanneltext" placeholder="amiibots" required />
+            </div>
         </div>
         <br>
         <div>
@@ -147,6 +158,7 @@
         </div>
     </div>
 
+    <script src="/assets/js/WindowReload.js"></script>
     <script src="/assets/js/StatusApiRequest.js"></script>
     <script src="/assets/js/ServiceStatus.js"></script>
     <script src="/assets/js/EditWindow.js"></script>

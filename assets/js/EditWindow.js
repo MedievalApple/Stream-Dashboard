@@ -5,7 +5,7 @@ windows = [document.getElementById("win0"),document.getElementById("win1"),docum
 
 addEventListener("keypress", (key) => { 
     console.log(key)
-    if (key.key == "e"){
+    if (key.key == "e" && editMenu.hidden == true){
         if(editOverlay.style.display == "none"){
             editOverlay.style.display = "grid"
         } else {
@@ -38,6 +38,7 @@ window.addEventListener("load", (event) => {
         windows[3].innerHTML = localStorage.getItem("win3")
     }
     initServiceStatus()
+    initAutoReload()
 });
 
 function SaveWindows() {
@@ -52,16 +53,40 @@ document.getElementById("winpreset").addEventListener('change', (e) => {
 })
 
 function refreshEditWindow() {
-    if(document.getElementById("winpreset").value != "e"){
-        document.getElementById("embedurl").style.display = "none"
-    }else {
+    document.getElementById("wintitle").style.display = ""
+    document.getElementById("autoreload").style.display = "none"
+    document.getElementById("embedurl").style.display = "none"
+    document.getElementById("videoid").style.display = "none"
+    document.getElementById("loopvideo").style.display = "none"
+    document.getElementById("videocaptions").style.display = "none"
+    document.getElementById("playlistid").style.display = "none"
+    document.getElementById("twitchchannel").style.display = "none"
+
+    //Embed
+    if(document.getElementById("winpreset").value == "e"){
         document.getElementById("embedurl").style.display = ""
+        document.getElementById("autoreload").style.display = ""
     }
+    //Youtube
+    if(document.getElementById("winpreset").value == "y"){
+        document.getElementById("videoid").style.display = ""
+        document.getElementById("loopvideo").style.display = ""
+        document.getElementById("videocaptions").style.display = ""
+    }
+    //Youtube Playlist
+    if(document.getElementById("winpreset").value == "p"){
+        document.getElementById("playlistid").style.display = ""
+        document.getElementById("videocaptions").style.display = ""
+    }
+    //Twitch
+    if(document.getElementById("winpreset").value == "t"){
+        document.getElementById("twitchchannel").style.display = ""
+    }
+    //Service Status
     if(document.getElementById("winpreset").value == "s"){
-        document.getElementById("wintitleid").style.display = "none"
-    }else {
-        document.getElementById("wintitleid").style.display = ""
+        document.getElementById("wintitle").style.display = "none"
     }
+    //Clear Prev Entrys
     document.getElementById("wintitle").value = ""
     document.getElementById("embedurltext").value = ""
 }
@@ -77,8 +102,14 @@ function showEditWindow(num) {
 
 function saveWindow(num) {
     const preset = document.getElementById("winpreset").value
-    const wintitle = document.getElementById("wintitle").value
+    const autoreload = document.getElementById("autoreloadcheck").checked
+    const wintitle = document.getElementById("wintitletext").value
     const embedurl = document.getElementById("embedurltext").value
+    const videoid = document.getElementById("videoidtext").value
+    const loopvideo = document.getElementById("loopvideocheck").checked
+    const videocaptions = document.getElementById("videocaptionscheck").checked
+    const playlistid = document.getElementById("playlistidtext").value
+    const twitchchannel = document.getElementById("twitchchanneltext").value
 
     if(wintitle != ""){
         windows[num].innerHTML = `<h3>${wintitle}</h3>`
@@ -87,7 +118,13 @@ function saveWindow(num) {
     }
 
     if(preset == "e"){
-        windows[num].innerHTML += `<iframe src=\"${embedurl}\" frameborder=\"0\"></iframe>`
+        windows[num].innerHTML += `<iframe${autoreload ? " class=\"auto-reload\"" : ""} src=\"${embedurl}\" frameborder=\"0\"></iframe>`
+    }else if (preset == "y") {
+        windows[num].innerHTML += `<iframe id=\"ytplayer\" type=\"text/html\" src=\"https://www.youtube.com/embed/${videoid}?mute=1&autoplay=1&cc_load_policy=${videocaptions ? "1" : "0"}&controls=0&loop=${loopvideo ? "1" : "0"}&modestbranding=1&color=white\" frameborder=\"0\"></iframe>`
+    } else if (preset == "p") {
+        windows[num].innerHTML += `<iframe id=\"ytplayer\" type=\"text/html\" src=\"https://www.youtube.com/embed/?listType=playlist&list=${playlistid}&mute=1&autoplay=1&cc_load_policy=${videocaptions ? "1" : "0"}&controls=0&loop=1&modestbranding=1&color=white\" frameborder=\"0\"></iframe>`
+    } else if (preset == "t") {
+        windows[num].innerHTML += `<iframe src=\"https://player.twitch.tv/?channel=${twitchchannel}&parent=dash.medievalapple.net\" frameborder=\"0\" allowfullscreen=\"false\" scrolling=\"no\"></iframe>`
     } else if (preset == "b") {
         windows[num].innerHTML += "<iframe id=\"ytplayer\" type=\"text/html\" src=\"https://www.youtube.com/embed/?listType=playlist&list=PLAEQD0ULngi6ji60yHxippnAAWQZIXnu-&mute=1&autoplay=1&cc_load_policy=1&controls=0&loop=1&modestbranding=1&color=white\" frameborder=\"0\"></iframe>"
     } else if (preset == "a") {
@@ -97,7 +134,7 @@ function saveWindow(num) {
     } else if (preset == "r") {
         windows[num].innerHTML += "<iframe src=\"https://streaming.swankmp.net/msuspartans\" frameborder=\"0\"></iframe>"
     } else if (preset == "l") {
-        windows[num].innerHTML += "<iframe src=\"https://g1.ipcamlive.com/player/player.php?alias=61fac12eabc0a&skin=white&autoplay=1&mute=1\" frameborder=\"0\"></iframe>"
+        windows[num].innerHTML += "<iframe class=\"auto-reload\" src=\"https://g1.ipcamlive.com/player/player.php?alias=61fac12eabc0a&skin=white&autoplay=1&mute=1\" frameborder=\"0\"></iframe>"
     }
 
     SaveWindows()
