@@ -88,7 +88,14 @@ function refreshEditWindow() {
     }
     //Clear Prev Entrys
     document.getElementById("wintitle").value = ""
+    document.getElementById("autoreloadcheck").checked = false
+    document.getElementById("wintitletext").value = ""
     document.getElementById("embedurltext").value = ""
+    document.getElementById("videoidtext").value = ""
+    document.getElementById("loopvideocheck").checked = false
+    document.getElementById("videocaptionscheck").checked = false
+    document.getElementById("playlistidtext").value = ""
+    document.getElementById("twitchchanneltext").value = ""
 }
 
 function showEditWindow(num) {
