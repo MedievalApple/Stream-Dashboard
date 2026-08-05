@@ -119,7 +119,7 @@ function saveWindow(num) {
 
     if(preset == "e"){
         windows[num].innerHTML += `<iframe${autoreload ? " class=\"auto-reload\"" : ""} src=\"${embedurl}\" frameborder=\"0\"></iframe>`
-    }else if (preset == "y") {
+    } else if (preset == "y") {
         windows[num].innerHTML += `<iframe id=\"ytplayer\" type=\"text/html\" src=\"https://www.youtube.com/embed/${videoid}?mute=1&autoplay=1&cc_load_policy=${videocaptions ? "1" : "0"}&controls=0&loop=${loopvideo ? "1" : "0"}&modestbranding=1&color=white\" frameborder=\"0\"></iframe>`
     } else if (preset == "p") {
         windows[num].innerHTML += `<iframe id=\"ytplayer\" type=\"text/html\" src=\"https://www.youtube.com/embed/?listType=playlist&list=${playlistid}&mute=1&autoplay=1&cc_load_policy=${videocaptions ? "1" : "0"}&controls=0&loop=1&modestbranding=1&color=white\" frameborder=\"0\"></iframe>`
@@ -129,6 +129,8 @@ function saveWindow(num) {
         windows[num].innerHTML += "<iframe id=\"ytplayer\" type=\"text/html\" src=\"https://www.youtube.com/embed/?listType=playlist&list=PLAEQD0ULngi6ji60yHxippnAAWQZIXnu-&mute=1&autoplay=1&cc_load_policy=1&controls=0&loop=1&modestbranding=1&color=white\" frameborder=\"0\"></iframe>"
     } else if (preset == "a") {
         windows[num].innerHTML += "<iframe src=\"https://player.twitch.tv/?channel=amiibots&parent=dash.medievalapple.net\" frameborder=\"0\" allowfullscreen=\"false\" scrolling=\"no\"></iframe>"
+    } else if (preset == "d") {
+        windows[num].innerHTML += "<iframe id=\"ytplayer\" type=\"text/html\" src=\"https://www.youtube.com/embed/5mGuCdlCcNM?mute=1&autoplay=1&cc_load_policy=0&controls=0&loop=1&modestbranding=1&color=white\" frameborder=\"0\"></iframe>"
     } else if (preset == "s") {
         windows[num].innerHTML += "<h3>MSU Service Status</h3><div class=\"service-status\"><div class=\"lights\"><a href=\"https://servicestatus.msu.edu/\" onclick=\"window.open('https://servicestatus.msu.edu/', 'statusWindow', 'popup'); return false;\" class=\"light\"><div id=\"upLight\" class=\"circle\"><span id=\"upNum\" class=\"cairo\">0</span></div><span>UP</span></a><a href=\"https://servicestatus.msu.edu/\" onclick=\"window.open('https://servicestatus.msu.edu/', 'statusWindow', 'popup'); return false;\" class=\"light\"><div id=\"affLight\" class=\"circle\"><span id=\"affNum\" class=\"cairo\">0</span></div><span>AFFECTED</span></a><a href=\"https://servicestatus.msu.edu/\" onclick=\"window.open('https://servicestatus.msu.edu/', 'statusWindow', 'popup'); return false;\" class=\"light\"><div id=\"downLight\" class=\"circle\"><span id=\"downNum\" class=\"cairo\">0</span></div><span>DOWN</span></a></div><span>Notifications</span><div class=\"notify\"><div id=\"events\" class=\"events\"><div id=\"no-events\" class=\"center-event\"><span>No Current Events</span></div></div></div></div></div>"
     } else if (preset == "r") {
